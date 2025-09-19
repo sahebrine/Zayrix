@@ -7,8 +7,6 @@ app = Flask(__name__)
 def index():
     username = request.args.get("username", "guest")
     expiry = request.args.get("expiry", "∞ days left")
-
-    # استخراج الإحصائيات من الرابط
     stats = {}
     sections = ["swap", "bypass", "claim"]
     for sec in sections:
@@ -32,8 +30,6 @@ def index():
             selected_section = "bypass"
         elif "btn3" in request.form:
             selected_section = "claim"
-
-    # HTML الأساسي
     base_template = """
     <!DOCTYPE html>
     <html lang="en">
@@ -195,6 +191,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
