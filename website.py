@@ -7,6 +7,8 @@ app = Flask(__name__)
 def index():
     username = request.args.get("username", "guest")
     expiry = request.args.get("expiry", "∞ days left")
+
+    # استخراج الإحصائيات من الرابط
     stats = {}
     sections = ["swap", "bypass", "claim"]
     for sec in sections:
@@ -20,6 +22,8 @@ def index():
             "TRIPLES": int(request.args.get(f"{sec}_TRIPLES", 0)),
             "OTHERS": int(request.args.get(f"{sec}_OTHERS", 0)),
         }
+
+    # تحديد القسم المطلوب بناءً على الزر
     selected_section = None
     if request.method == "POST":
         if "btn1" in request.form:
@@ -28,6 +32,8 @@ def index():
             selected_section = "bypass"
         elif "btn3" in request.form:
             selected_section = "claim"
+
+    # HTML الأساسي
     base_template = """
     <!DOCTYPE html>
     <html lang="en">
@@ -75,20 +81,24 @@ def index():
         gap: 20px;
     }
     .btn {
-        padding: 15px 30px;
-        font-size: 18px;
-        font-weight: 600;
-        color: white;
-        background: linear-gradient(270deg, #1a1a1a, #333, #1a1a1a);
-        border: 2px solid white;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .btn:hover {
-        background: white;
-        color: black;
-    }
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #0f0f0f, #1a1a1a, #0f0f0f);
+    background-size: 600% 600%;
+    animation: innerGradient 3s linear infinite;
+    box-shadow: 0 0 8px rgba(255,255,255,0.4);
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.7);
+}
 
     .section { margin: 20px 10px; }
     .section h2 { font-size: 20px; margin-bottom: 15px; }
@@ -118,10 +128,10 @@ def index():
     .card p { font-size: 20px; margin: 0; }
 
     @keyframes innerGradient {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 100% 50%;}
-        100% {background-position: 0% 50%;}
-    }
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
     @keyframes textGradient {
         0% {background-position: 0% 50%;}
         50% {background-position: 100% 50%;}
@@ -179,6 +189,9 @@ def index():
     )
 
 
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
