@@ -77,8 +77,8 @@ def index():
         color: transparent;
     }
     .avatar {
-        width: 200px; height: 200px;
-        border-radius: 50%;
+        width: 120px; height: 120px;
+        border-radius: 100%;
     }
     .username { font-size: 28px; margin-top: 10px; }
 
@@ -166,7 +166,7 @@ def index():
     </head>
     <body>
     <div class="header">
-        <img src="https://cdn.discordapp.com/attachments/1370733349995548682/1418595688836632667/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68ceb1b0&is=68cd6030&hm=a32685de1baa2460d1b7e009c40435a8de0ad63b3fa2738604414ed2460c29a1&" class="avatar">
+        <img src="https://cdn.discordapp.com/attachments/1370733349995548682/1418747942466093188/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68cf3f7c&is=68cdedfc&hm=4e4f870113962efdbd93774d6faa00fcff1c7aaea3b119be1a38bbeed4bc66a4&" class="avatar">
         <div class="username">{{ username }}</div>
         <div class="info">Expiry: {{ expiry }}</div>
         <div class="info">Generated: {{ now }}</div>
@@ -192,7 +192,7 @@ def index():
             </div>
         </div>
         <div class="buttons">
-            <button class="btn" type="submit" name="back">Back</button>
+            <button class="btn" type="submit" name="back"> Back</button>
         </div>
         {% endif %}
     </form>
@@ -213,6 +213,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
