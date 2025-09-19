@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     username = request.args.get("username", "guest")
     expiry = request.args.get("expiry", "∞ days left")
-    avatar = request.args.get("avatar", "https://cdn.discordapp.com/attachments/1370733349995548682/1418595688836632667/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68ceb1b0&is=68cd6030&hm=a32685de1baa2460d1b7e009c40435a8de0ad63b3fa2738604414ed2460c29a1&")
+    avatar = "https://cdn.discordapp.com/attachments/1370733349995548682/1418595688836632667/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68ceb1b0&is=68cd6030&hm=a32685de1baa2460d1b7e009c40435a8de0ad63b3fa2738604414ed2460c29a1&"
     stats = {}
     sections = ["swap", "bypass", "claim"]
     for sec in sections:
@@ -203,6 +203,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
