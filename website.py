@@ -7,7 +7,6 @@ app = Flask(__name__)
 def index():
     username = request.args.get("username", "guest")
     expiry = request.args.get("expiry", "∞ days left")
-    avatar = "https://cdn.discordapp.com/attachments/1370733349995548682/1418595688836632667/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68ceb1b0&is=68cd6030&hm=a32685de1baa2460d1b7e009c40435a8de0ad63b3fa2738604414ed2460c29a1&"
     stats = {}
     sections = ["swap", "bypass", "claim"]
     for sec in sections:
@@ -41,14 +40,16 @@ def index():
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
     body {
-        margin: 0; padding: 0;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        color: #fff;
-        background: linear-gradient(-45deg, #1e3c72, #2a5298, #6a11cb, #ff4b2b);
-        background-size: 400% 400%;
-        animation: bgGradient 12s ease infinite;
-    }
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(270deg, #000000, #111111, #1c1c1c, #000000);
+    background-size: 600% 600%;
+    animation: blackGradient 10s ease infinite;
+}
+
 
     @keyframes bgGradient {
         0% {background-position: 0% 50%;}
@@ -57,11 +58,14 @@ def index():
     }
 
     .header {
-        padding: 20px;
-        background: rgba(0,0,0,0.4);
-        border-bottom: 2px solid #ffffff;
-        box-shadow: 0 0 15px rgba(255,255,255,0.5);
-    }
+    padding: 20px;
+    background: linear-gradient(270deg, #0d0d0d, #1a1a1a, #0d0d0d);
+    background-size: 400% 400%;
+    animation: blackGradient 8s ease infinite;
+    border-bottom: 2px solid #ffffff33;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
     .username, .info {
         font-size: 18px;
         margin: 5px 0;
@@ -87,23 +91,23 @@ def index():
         width: fit-content;
     }
     .btn {
-        padding: 15px 30px;
-        font-size: 18px;
-        font-weight: 700;
-        color: black;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        background: linear-gradient(270deg, #ff9a8b, #ff6a88, #ff99ac);
-        background-size: 600% 600%;
-        animation: innerGradient 4s linear infinite;
-        box-shadow: 0 0 8px rgba(255,255,255,0.6);
-        transition: transform 0.2s ease-in-out;
-    }
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(270deg, #000000, #141414, #1f1f1f, #000000);
+    background-size: 600% 600%;
+    animation: blackGradient 4s linear infinite;
+    box-shadow: 0 0 8px rgba(255,255,255,0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
     .btn:hover {
-        transform: scale(1.08);
-        box-shadow: 0 0 20px rgba(255,255,255,0.9);
-    }
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
 
     .section { margin: 20px 10px; }
     .section h2 { font-size: 20px; margin-bottom: 15px; }
@@ -120,15 +124,26 @@ def index():
         position: relative;
         box-shadow: 0 0 8px #ffffff;
     }
-    .card-inner {
-        width: 100%; height: 100%;
-        display: flex; flex-direction: column;
-        justify-content: center; align-items: center;
-        background: linear-gradient(270deg, #f6d365, #fda085, #fbc2eb);
-        background-size: 600% 600%;
-        animation: innerGradient 3s linear infinite;
-        color: black; font-weight: 700;
-    }
+   .card-inner {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    background: linear-gradient(270deg, #000000, #1a1a1a, #2b2b2b, #000000);
+    background-size: 600% 600%;
+    animation: blackGradient 6s ease infinite;
+    color: #fff; 
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+}
+
+@keyframes blackGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
     .card h3 { font-size: 14px; margin-bottom: 5px; }
     .card p { font-size: 20px; margin: 0; }
 
@@ -151,7 +166,7 @@ def index():
     </head>
     <body>
     <div class="header">
-        <img src="{{ avatar }}" class="avatar">
+        <img src="https://cdn.discordapp.com/attachments/1370733349995548682/1418595688836632667/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68ceb1b0&is=68cd6030&hm=a32685de1baa2460d1b7e009c40435a8de0ad63b3fa2738604414ed2460c29a1&" class="avatar">
         <div class="username">{{ username }}</div>
         <div class="info">Expiry: {{ expiry }}</div>
         <div class="info">Generated: {{ now }}</div>
@@ -177,7 +192,7 @@ def index():
             </div>
         </div>
         <div class="buttons">
-            <button class="btn" type="submit" name="back">Back</button>
+            <button class="btn" type="submit" name="back">⬅ Back</button>
         </div>
         {% endif %}
     </form>
@@ -191,18 +206,14 @@ def index():
         base_template,
         username=username,
         expiry=expiry,
-        avatar=avatar,
         now=datetime.now().strftime('%Y/%m/%d %I:%M:%S %p'),
         stats=stats,
         section=selected_section
     )
 
-
-
-
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
