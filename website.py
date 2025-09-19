@@ -7,8 +7,6 @@ app = Flask(__name__)
 def index():
     username = request.args.get("username", "guest")
     expiry = request.args.get("expiry", "∞ days left")
-
-    # استخراج الإحصائيات من الرابط
     stats = {}
     sections = ["swap", "bypass", "claim"]
     for sec in sections:
@@ -22,8 +20,6 @@ def index():
             "TRIPLES": int(request.args.get(f"{sec}_TRIPLES", 0)),
             "OTHERS": int(request.args.get(f"{sec}_OTHERS", 0)),
         }
-
-    # تحديد القسم المطلوب بناءً على الزر
     selected_section = None
     if request.method == "POST":
         if "btn1" in request.form:
@@ -32,8 +28,6 @@ def index():
             selected_section = "bypass"
         elif "btn3" in request.form:
             selected_section = "claim"
-
-    # HTML الأساسي
     base_template = """
     <!DOCTYPE html>
     <html lang="en">
@@ -186,4 +180,5 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
+
