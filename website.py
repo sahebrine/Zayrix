@@ -75,10 +75,12 @@ def index():
     .info { font-size: 18px; margin: 5px 0; }
 
     .buttons {
-        margin: 30px;
+        margin: 30px auto;
         display: flex;
-        justify-content: center;
-        gap: 20px;
+        flex-direction: column;
+        gap: 15px; 
+        align-items: center;
+        width: fit-content;
     }
     .btn {
     padding: 15px 30px;
@@ -193,5 +195,6 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
