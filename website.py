@@ -169,7 +169,7 @@ def index():
         <img src="https://cdn.discordapp.com/attachments/1370733349995548682/1418747942466093188/6E5EC9B7-5174-4B00-8FD2-6E73E5FB946D.png?ex=68cf3f7c&is=68cdedfc&hm=4e4f870113962efdbd93774d6faa00fcff1c7aaea3b119be1a38bbeed4bc66a4&" class="avatar">
         <div class="username">{{ username }}</div>
         <div class="info">Expiry: {{ expiry }}</div>
-        <div class="info">Generated: {{ now }}</div>
+        <div class="info">Time: {{ now }}</div>
     </div>
 
     <form method="post">
@@ -213,6 +213,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
