@@ -181,7 +181,6 @@ def index():
         </div>
         {% else %}
         <div class="section">
-            <h2>{{ section|capitalize }} Statistics</h2>
             <div class="cards">
             {% for key, value in stats[section].items() %}
                 <div class="card"><div class="card-inner">
@@ -213,6 +212,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
