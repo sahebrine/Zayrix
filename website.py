@@ -77,7 +77,7 @@ def index():
         color: transparent;
     }
     .avatar {
-        width: 100px; height: 100px;
+        width: 80px; height: 80px;
         border-radius: 100%;
     }
     .username { font-size: 28px; margin-top: 10px; }
@@ -213,6 +213,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
 
